@@ -1,7 +1,5 @@
 package org.diosoft.spring.core;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,7 +10,8 @@ import java.util.List;
  */
 @Component
 public class ConcreteSubject implements Subject {
-    private List<Observer> observers=new ArrayList<>();
+    private List<Observer> observers = new ArrayList<>();
+
     public ConcreteSubject() {
     }
 
@@ -29,7 +28,7 @@ public class ConcreteSubject implements Subject {
 
     @Override
     public void notifyObservers(Message message) {
-        for(Observer observer: observers){
+        for (Observer observer : observers) {
             observer.notifyObserver(message);
         }
     }

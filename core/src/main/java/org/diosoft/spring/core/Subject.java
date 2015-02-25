@@ -5,6 +5,8 @@ package org.diosoft.spring.core;
  */
 public interface Subject {
     void register(Observer observer);
+
     void unregister(Observer observer);
+
     void notifyObservers(Message message);
 }

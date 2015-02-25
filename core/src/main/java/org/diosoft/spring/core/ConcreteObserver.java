@@ -6,9 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
-/**
- * Created by yar on 23.02.15.
- */
 @Component
 @Scope("prototype")
 public class ConcreteObserver implements Observer, Runnable {
@@ -49,7 +46,7 @@ public class ConcreteObserver implements Observer, Runnable {
         System.out.println(name + " observer: " + "Subject: " + message.getSubject() + ", Details: " + message.getDetails());
     }
 
-    private void generateAndSend() {
+    private void sendMessage() {
         Message message = new Message("From " + name, randomString());
         subject.notifyObservers(message);
     }
@@ -70,7 +67,7 @@ public class ConcreteObserver implements Observer, Runnable {
             subject.register(this);
             int count = 0;
             while (!Thread.interrupted() && count < 10) {
-                generateAndSend();
+                sendMessage();
                 Thread.sleep(1000 + random.nextInt(10000));
             }
         } catch (InterruptedException e) {

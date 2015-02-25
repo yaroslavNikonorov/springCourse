@@ -19,8 +19,8 @@ public class Action {
     private ApplicationContext context;
 
     @PostConstruct
-    public void start(){
-        for(int i=0; i<10; i++) {
+    public void start() {
+        for (int i = 0; i < 10; i++) {
 //            subject.register(context.getBean(Observer.class));
             context.getBean(Observer.class);
         }
