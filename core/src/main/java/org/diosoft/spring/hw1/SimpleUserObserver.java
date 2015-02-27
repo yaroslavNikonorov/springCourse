@@ -44,15 +44,17 @@ public class SimpleUserObserver implements Observer {
 
     @Override
     public void notifyObserver(Message message) {
-        System.out.println(name + " observer:" + " Subject: " + message.getSubject() + ", Details: " + message.getDetails());
+        System.out.println(name + " observer:" + " Subject: " + message.getSubject() + ", Details: " + message.getDetails()+", Thread: "+Thread.currentThread().getName());
     }
 
 //    @PostConstruct
     public void init(){
         try {
-            while (true) subject.notifyObservers(new Message("From " + name, br.readLine()));
+            String msg;
+            while ((msg=br.readLine())!=null) subject.notifyObservers(new Message("From " + name, msg));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        subject.unregister(this);
     }
 }

@@ -14,8 +14,8 @@ public class SimpleMain {
             for(int i=0; i<=10;i++){
                 context.getBean(SimpleObserver.class);
             }
-//        context.getBean(SimpleUserObserver.class);
-        context.getBean(Observer.class);
+        context.getBean(SimpleUserObserver.class);
+//        context.getBean(Observer.class);
 
     }
 }
