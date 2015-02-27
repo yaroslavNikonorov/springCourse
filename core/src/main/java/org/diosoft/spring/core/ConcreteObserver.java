@@ -17,7 +17,9 @@ public class ConcreteObserver implements Observer, Runnable {
     private Subject subject;
 
     public ConcreteObserver() {
-        new Thread(this).start();
+        subject.register(this);
+        System.out.println(name+" Initialized");
+//        new Thread(this).start();
     }
 
     public ConcreteObserver(String name) {
@@ -36,6 +38,7 @@ public class ConcreteObserver implements Observer, Runnable {
         return subject;
     }
 
+//    @Autowired
     public void setSubject(Subject subject) {
         this.subject = subject;
         subject.register(this);

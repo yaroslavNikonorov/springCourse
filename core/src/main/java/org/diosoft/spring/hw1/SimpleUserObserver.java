@@ -1,8 +1,6 @@
-package org.diosoft.spring.core;
+package org.diosoft.spring.hw1;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.diosoft.spring.core.Message;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,16 +11,17 @@ import java.io.InputStreamReader;
  */
 //@Component
 //@Scope("prototype")
-public class UserObserver implements Observer, Runnable {
-    private String name;
-    @Autowired
+public class SimpleUserObserver implements Observer {
+    private String name="User";
     private Subject subject;
     private BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    public UserObserver() {
-//        new Thread(this).start();
+//    @Autowired
+    public SimpleUserObserver(Subject subject) {
+        this.subject=subject;
         subject.register(this);
-        run();
+        System.out.println(name+" Initialized");
+//        init();
     }
 
     public String getName() {
@@ -48,15 +47,11 @@ public class UserObserver implements Observer, Runnable {
         System.out.println(name + " observer:" + " Subject: " + message.getSubject() + ", Details: " + message.getDetails());
     }
 
-    @Override
-    public void run() {
+//    @PostConstruct
+    public void init(){
         try {
-            while (subject == null) Thread.sleep(100);
-            subject.register(this);
-            while (!Thread.interrupted()) subject.notifyObservers(new Message("From " + name, br.readLine()));
+            while (true) subject.notifyObservers(new Message("From " + name, br.readLine()));
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

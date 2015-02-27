@@ -6,14 +6,4 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="org.diosoft.spring.core"/>
-
-    <!--<bean id="subject" class="org.diosoft.spring.core.ConcreteSubject"/>-->
-    <!--<bean id="userObserver" scope="prototype" class="org.diosoft.spring.core.UserObserver">-->
-        <!--<property name="name" value="User"/>-->
-        <!--<property name="subject" ref="subject"/>-->
-    <!--</bean>-->
-    <!--<bean id="concreteObserver" scope="prototype" class="org.diosoft.spring.core.ConcreteObserver">-->
-        <!--<property name="subject" ref="subject"/>-->
-        <!--<constructor-arg name="name" value="Virtual"/>-->
-    <!--</bean>-->
 </beans>
