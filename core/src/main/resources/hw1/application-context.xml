@@ -7,13 +7,13 @@
     <!--<context:annotation-config/>-->
     <!--<context:component-scan base-package="org.diosoft.spring.core"/>-->
 
-    <bean id="subject" class="org.diosoft.spring.hw1.SimpleSubject"/>
+    <bean id="subject" class="org.diosoft.spring.core.hw1.SimpleSubject"/>
 
-    <bean id="observer" scope="prototype" class="org.diosoft.spring.hw1.SimpleObserver">
+    <bean id="observer" scope="prototype" class="org.diosoft.spring.core.hw1.SimpleObserver">
         <constructor-arg name="subject" ref="subject"/>
     </bean>
 
-    <bean id="userObserver" scope="prototype" class="org.diosoft.spring.hw1.SimpleUserObserver" init-method="init">
+    <bean id="userObserver" scope="prototype" class="org.diosoft.spring.core.hw1.SimpleUserObserver" init-method="init">
         <constructor-arg name="subject" ref="subject"/>
     </bean>
 </beans>
