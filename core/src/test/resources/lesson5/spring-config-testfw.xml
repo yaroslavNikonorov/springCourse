@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="subject" class="org.diosoft.spring.core.hw4.SimpleSubject"/>
+
+    <beans profile="dev">
+        <bean id="dev-observer" class="org.diosoft.spring.core.hw4.DevObserver">
+            <constructor-arg ref="subject"/>
+        </bean>
+    </beans>
+    <beans profile="qa">
+        <bean id="qa-observer" class="org.diosoft.spring.core.hw4.QaObserver">
+            <constructor-arg ref="subject"/>
+        </bean>
+    </beans>
+</beans>

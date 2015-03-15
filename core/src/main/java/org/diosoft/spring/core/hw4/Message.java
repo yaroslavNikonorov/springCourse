@@ -1,4 +1,4 @@
-package org.diosoft.spring.core;
+package org.diosoft.spring.core.hw4;
 
 /**
  * Created by yar on 25.02.15.
